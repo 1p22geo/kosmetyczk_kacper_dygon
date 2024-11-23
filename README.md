@@ -1,5 +1,8 @@
 # Aplikacja kosmetyczki
 
+[Dokumentacja](./doc/doc.md)
+
+
 ## Uruchamianie
 Przed uruchomieniem:
 - skopiuj .env.local.example do .env.local
