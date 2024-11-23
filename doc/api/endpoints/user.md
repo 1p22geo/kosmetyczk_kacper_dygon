@@ -13,6 +13,7 @@ export interface UserRouteResponse {
     _id: ObjectId;
     username: string;
     email: string;
+    type: string;
   };
   session: {
     _id: ObjectId;
@@ -23,6 +24,8 @@ export interface UserRouteResponse {
 }
 ```
 
+
+Refer to schema for user types
 ## Status codes
 - 401 Unauthorized (if no session cookie or not logged in)
 - 404 Not Found (if aggregation fails, the error is hidden)

@@ -13,6 +13,7 @@ export interface UserRouteResponse {
     _id: ObjectId;
     username: string;
     email: string;
+    type: string;
   };
 }
 ```
