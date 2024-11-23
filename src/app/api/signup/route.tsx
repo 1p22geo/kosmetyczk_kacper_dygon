@@ -52,6 +52,7 @@ export const POST = async (req: NextRequest) => {
     username: data.username,
     email: data.email,
     hash: hash,
+    type: "klient"
   });
 
   await client.close();
