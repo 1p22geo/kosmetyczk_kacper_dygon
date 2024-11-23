@@ -13,7 +13,6 @@ export interface UserRouteResponse {
     _id: ObjectId;
     username: string;
     email: string;
-    activeorder: ObjectId[];
   };
   session: {
     _id: ObjectId;

@@ -14,8 +14,8 @@ export const POST = async (req: NextRequest) => {
   const uri = env.MONGODB_URI
     ? env.MONGODB_URI
     : (() => {
-        throw Error("no mongodb URI, set MONGODB_URI environment variable");
-      })();
+      throw Error("no mongodb URI, set MONGODB_URI environment variable");
+    })();
   const client = new MongoClient(uri);
   await client.connect();
 
@@ -52,7 +52,6 @@ export const POST = async (req: NextRequest) => {
     username: data.username,
     email: data.email,
     hash: hash,
-    activeorder: [],
   });
 
   await client.close();

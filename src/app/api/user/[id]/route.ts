@@ -9,8 +9,8 @@ export const GET = async (
   const uri = env.MONGODB_URI
     ? env.MONGODB_URI
     : (() => {
-        throw Error("no mongodb URI, set MONGODB_URI environment variable");
-      })();
+      throw Error("no mongodb URI, set MONGODB_URI environment variable");
+    })();
   const client = new MongoClient(uri);
   await client.connect();
 
@@ -22,7 +22,6 @@ export const GET = async (
     return NextResponse.json({ status: "user not found" }, { status: 404 });
   }
   delete user.hash;
-  delete user.activeorder;
 
   await client.close();
   return NextResponse.json({ type: "user from supplied ID", user: user });
