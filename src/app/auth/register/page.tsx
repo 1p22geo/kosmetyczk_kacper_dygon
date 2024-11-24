@@ -18,6 +18,7 @@ export default function Register() {
                     <input className="login-input" type="password" placeholder="powtórz hasło"/>
                 </label>
                 <p>Masz już konto? <a href="login">Zaloguj się</a></p>
+                <input type="submit" value="Zarejestruj się" className="submit-button"/>
             </form>
         </div>
 

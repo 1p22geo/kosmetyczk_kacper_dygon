@@ -24,6 +24,7 @@ export default function Login() {
                 </label>
                     <p>Nie masz jeszcze konta? <a href="register">Zarejestruj się</a></p>
                     <p>Zapomniałeś hasła? <a href="password-reset">Zresetuj hasło</a></p>
+                <input type="submit" value="Zaloguj się" className="submit-button"/>
             </form>
         </div>
 
