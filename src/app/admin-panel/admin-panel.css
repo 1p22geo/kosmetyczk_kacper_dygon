@@ -1,0 +1,49 @@
+.admin-panel{
+    display:flex;
+    flex-direction: column;
+}
+
+h1, h2{
+    text-align: center;
+    margin:10px;
+}
+
+form{
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    font-size:1em;
+}
+
+label > *{
+    margin:5px;
+}
+
+input:not([type="submit"]){
+    border-bottom: #3A144B solid 2px;
+    padding:4px;
+}
+
+textarea{
+    border:#3a144b solid 2px;
+}
+
+input, textarea{
+    margin: 10px;
+}
+
+input[type="submit"]{
+    background-color:#3A144B ;
+    border-radius: 10px;
+    color:white;
+    cursor:pointer;
+    width:30%;
+    align-self:center;
+    padding:5px;
+}
+
+dialog{
+    padding:50px;
+    border-radius: 10px;
+    border: #3A144B solid 2px;
+}
