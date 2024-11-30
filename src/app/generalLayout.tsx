@@ -1,5 +1,5 @@
 import {ReactNode} from "react";
-
+import Navbar from "@/app/components/navbar/navbar";
 import "./generalLayout.css"
 
 export default function GeneralLayout(props: {children: ReactNode}) {
@@ -8,7 +8,7 @@ export default function GeneralLayout(props: {children: ReactNode}) {
         <div>
 
             <header>
-
+                <Navbar/>
             </header>
             <main>{props.children}</main>
             <footer>

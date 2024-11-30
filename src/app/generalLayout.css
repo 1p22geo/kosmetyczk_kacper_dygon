@@ -26,6 +26,19 @@ footer .allRightsReserved{
     color: #FFFFFF88
 }
 
-header{
-    background-color:white;
+header {
+    background-color: white;
+    border-bottom:solid 3px #8C61A0;
+}
+
+header > * {
+    width:70%;
+    margin:auto;
+}
+
+main{
+    width:60%;
+    background-color: white;
+    margin:auto;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.33);
 }
