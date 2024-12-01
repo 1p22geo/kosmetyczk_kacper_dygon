@@ -4,13 +4,20 @@ import GeneralLayout from "@/app/generalLayout";
 import "./admin-panel.css";
 import { useRef } from "react";
 
+import CloseDialogIcon from './close-dialog-icon.svg'
+import Image from "next/image"
+
 
 export default function AdminPanel() {
 
     const addTreatmentDialog = useRef<HTMLDialogElement>(null);
 
-    function showAddTreatmentDialog() {
-        addTreatmentDialog.current.showModal();
+    function switchAddTreatmentDialogVisibility() {
+        if (!addTreatmentDialog.current.open){
+            addTreatmentDialog.current.showModal();
+        } else {
+            addTreatmentDialog.current.close();
+        }
     }
 
     return (
@@ -28,8 +35,10 @@ export default function AdminPanel() {
                 </div>
                 <div className="admin-treatments-section">
                     <h2>Zabiegi</h2>
-                    <button onClick={showAddTreatmentDialog} >Dodaj zabieg</button>
+                    <button onClick={switchAddTreatmentDialogVisibility} className="text-button">Dodaj zabieg</button>
+
                     <dialog ref={addTreatmentDialog}>
+                        <button className="close-dialog-button" onClick={switchAddTreatmentDialogVisibility}><Image src={CloseDialogIcon} alt="close dialog icon" /></button>
                         <form>
                             <h3>Dodaj zabieg</h3>
                             <label>
@@ -42,7 +51,7 @@ export default function AdminPanel() {
                             </label>
                             <label>
                                 Cena (zł)
-                                <input type="number" step="0.01" inputMode="numeric"/>
+                                <input type="number" step="0.01" inputMode="numeric" min="0.01"/>
                             </label>
                             <input type="submit" value="Dodaj"/>
                         </form>

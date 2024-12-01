@@ -3,6 +3,12 @@
     flex-direction: column;
 }
 
+.admin-panel > div{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 h1, h2{
     text-align: center;
     margin:10px;
@@ -20,20 +26,20 @@ label > *{
 }
 
 input:not([type="submit"]){
-    border-bottom: #3A144B solid 2px;
-    padding:4px;
+    border-bottom: var(--font-color) solid 2px;
 }
 
 textarea{
-    border:#3a144b solid 2px;
+    border:var(--font-color) solid 2px;
 }
 
 input, textarea{
     margin: 10px;
+    padding:5px;
 }
 
 input[type="submit"]{
-    background-color:#3A144B ;
+    background-color:var(--button-color) ;
     border-radius: 10px;
     color:white;
     cursor:pointer;
@@ -43,7 +49,19 @@ input[type="submit"]{
 }
 
 dialog{
-    padding:50px;
+    padding:20px;
     border-radius: 10px;
     border: #3A144B solid 2px;
+}
+
+.close-dialog-button{
+    position:absolute;
+    top:10px;
+    right:10px;
+    left: auto;
+}
+
+.close-dialog-button img{
+    height:30px;
+    width:30px;
 }
