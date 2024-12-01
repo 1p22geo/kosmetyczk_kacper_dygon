@@ -86,5 +86,5 @@ export default function TreatmentList(props: {
     },
   );
 
-  return <div>{renderedTreatmentList}</div>;
+  return <div className="w-full flex flex-col items-center">{renderedTreatmentList}</div>;
 }

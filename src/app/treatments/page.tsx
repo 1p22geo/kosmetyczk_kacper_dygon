@@ -1,40 +1,64 @@
 import GeneralLayout from "@/app/generalLayout";
-import { Treatment } from "@/app/components/admin-panel-related/treatment-list/treatment-list";
+import {ClientSantizedTreatment, Treatment} from "@/app/components/admin-panel-related/treatment-list/treatment-list";
 import "./treatments.css";
 
-export default function Treatments() {
-  let id = 0;
+import { MongoClient, ObjectId, WithoutId } from "mongodb";
 
-  const treatmentArray: Treatment[] = [
-    {
-      id: id++,
-      title: "Usuwanie oczów",
-      description:
-        "Procedura, w której usuwa się oczy, w przypadku, gdy ktoś chce być niewidomy.",
-      price: 249.9,
-      time: 90,
-    },
-    {
-      id: id++,
-      title: "Wycinanie nerek",
-      description:
-        "Nerki mają niekorzystny wpływ dla zdrowia - u nas możesz się ich pozbyć.",
-      price: 399.9,
-      time: 150,
-    },
-    {
-      id: id++,
-      title: "Obgryzanie paznokci",
-      description:
-        "Nasi pracownicy obgryzą Ci paznokcie, by wyglądały jeszcze piękniej.",
-      price: 49.9,
-      time: 30,
-    },
-  ];
+import { env } from "process";
+import {Client} from "undici-types";
 
-  const renderedTreatmentList = treatmentArray.map((treatment: Treatment) => {
+export default async function Treatments() {
+
+    const uri = env.MONGODB_URI
+        ? env.MONGODB_URI
+        : (() => {
+            throw Error("no mongodb URI, set MONGODB_URI environment variable");
+        })();
+    const client = new MongoClient(uri);
+    await client.connect();
+
+    const db = client.db("kosmetyczk");
+    const treatments = db.collection<Treatment>("treatments");
+
+    const treatmentArray: ClientSantizedTreatment[] = (
+        await treatments.find({}).toArray()
+    ).map((t) => ({ ...t, _id: t._id.toString() }));
+
+    await client.close();
+
+
+  // let id = 0;
+  //
+  // const treatmentArray: Treatment[] = [
+  //   {
+  //     id: id++,
+  //     title: "Usuwanie oczów",
+  //     description:
+  //       "Procedura, w której usuwa się oczy, w przypadku, gdy ktoś chce być niewidomy.",
+  //     price: 249.9,
+  //     time: 90,
+  //   },
+  //   {
+  //     id: id++,
+  //     title: "Wycinanie nerek",
+  //     description:
+  //       "Nerki mają niekorzystny wpływ dla zdrowia - u nas możesz się ich pozbyć.",
+  //     price: 399.9,
+  //     time: 150,
+  //   },
+  //   {
+  //     id: id++,
+  //     title: "Obgryzanie paznokci",
+  //     description:
+  //       "Nasi pracownicy obgryzą Ci paznokcie, by wyglądały jeszcze piękniej.",
+  //     price: 49.9,
+  //     time: 30,
+  //   },
+  // ];
+
+  const renderedTreatmentList = treatmentArray.map((treatment: ClientSantizedTreatment) => {
     return (
-      <div key={treatment.id} className="treatment-element">
+      <div key={treatment._id.toString()} className="treatment-element">
         <h2>
           <b>{treatment.title}</b>
         </h2>
