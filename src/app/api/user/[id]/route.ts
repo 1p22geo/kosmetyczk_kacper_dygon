@@ -9,8 +9,8 @@ export const GET = async (
   const uri = env.MONGODB_URI
     ? env.MONGODB_URI
     : (() => {
-      throw Error("no mongodb URI, set MONGODB_URI environment variable");
-    })();
+        throw Error("no mongodb URI, set MONGODB_URI environment variable");
+      })();
   const client = new MongoClient(uri);
   await client.connect();
 

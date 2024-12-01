@@ -1,10 +1,10 @@
-.admin-panel-list-element{
-    border: solid 2px;
-    border-radius:10px;
-    padding:10px;
-    margin: 10px 0 10px 0;
+.admin-panel-list-element {
+  border: solid 2px;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px 0 10px 0;
 }
 
-.admin-panel-list-element button{
-    margin-right:5px;
+.admin-panel-list-element button {
+  margin-right: 5px;
 }

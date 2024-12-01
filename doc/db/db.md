@@ -4,3 +4,4 @@ Database: `kosmetyczk`
 Collections:
 - [users](./collections/users.md)
 - [sessions](./collections/sessions.md)
+- [treatments](./collections/zabieg.md)

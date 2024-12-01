@@ -1,26 +1,26 @@
-
-.book-now-button, .nav-logo{
-    background-color: #8C61A0;
-    color:white;
+.book-now-button,
+.nav-logo {
+  background-color: #8c61a0;
+  color: white;
 }
 
-.nav-logo{
-    padding:15px;
+.nav-logo {
+  padding: 15px;
 }
 
-.navbar{
-    display:flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 15px 0 15px 0;
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 15px 0 15px 0;
 }
 
-.navbar > *{
-    max-height:200px;
-    font-size:150%;
+.navbar > * {
+  max-height: 200px;
+  font-size: 150%;
 }
 
-.navbar img{
-    max-height:80px;
-    max-width:100px;
+.navbar img {
+  max-height: 80px;
+  max-width: 100px;
 }

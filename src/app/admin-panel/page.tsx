@@ -1,93 +1,48 @@
-'use client';
-
 import GeneralLayout from "@/app/generalLayout";
 import "./admin-panel.css";
-import TreatmentList, { Treatment } from "@/app/components/admin-panel-related/treatment-list/treatment-list"
+import { MongoClient, ObjectId, WithoutId } from "mongodb";
+import { Zabiegi } from "./zabiegi";
 
-import {useRef} from "react";
-import AdminPanelDialog, {
-    AdminPanelDialogHandle
-} from "@/app/components/admin-panel-related/admin-panel-dialog/admin-panel-dialog";
+import { env } from "process";
+import {
+  ClientSantizedTreatment,
+  Treatment,
+} from "../components/admin-panel-related/treatment-list/treatment-list";
 
+export default async function AdminPanel() {
+  const uri = env.MONGODB_URI
+    ? env.MONGODB_URI
+    : (() => {
+        throw Error("no mongodb URI, set MONGODB_URI environment variable");
+      })();
+  const client = new MongoClient(uri);
+  await client.connect();
 
-export default function AdminPanel() {
+  const db = client.db("kosmetyczk");
+  const treatments = db.collection<Treatment>("treatments");
 
-    const addTreatmentDialog = useRef<AdminPanelDialogHandle>(null);
+  const treatmentArray: ClientSantizedTreatment[] = (
+    await treatments.find({}).toArray()
+  ).map((t) => ({ ...t, _id: t._id.toString() }));
 
-    let id = 0;
+  await client.close();
 
-    const treatmentArray: Treatment[] = [
-        {
-            id: id++,
-            title: "Usuwanie oczów",
-            description: "Procedura, w której usuwa się oczy, w przypadku, gdy ktoś chce być niewidomy.",
-            price: 249.90,
-            time: 90
-        },
-        {
-            id: id++,
-            title: "Wycinanie nerek",
-            description: "Nerki mają niekorzystny wpływ dla zdrowia - u nas możesz się ich pozbyć.",
-            price: 399.90,
-            time: 150
-        },
-        {
-            id: id++,
-            title: "Obgryzanie paznokci",
-            description: "Nasi pracownicy obgryzą Ci paznokcie, by wyglądały jeszcze piękniej.",
-            price: 49.90,
-            time: 30
-        }
-    ]
-
-    return (
-        <GeneralLayout>
-            <div className="admin-panel">
-                <h1>Panel admina</h1>
-                <div className="admin-users-section">
-                    <h2>Konta użytkowników</h2>
-                    <div>
-
-                    </div>
-                </div>
-                <div className="admin-clients-section">
-                    <h2>Klienci</h2>
-                </div>
-                <div className="admin-treatments-section">
-                    <h2>Zabiegi</h2>
-                    <button onClick={() => addTreatmentDialog.current.open() } className="primary-button">Dodaj zabieg</button>
-                    <TreatmentList treatmentsArray={treatmentArray}/>
-
-
-                    <AdminPanelDialog ref={addTreatmentDialog}>
-                        <form>
-                            <h3>Dodaj zabieg</h3>
-                            <label>
-                                Nazwa
-                                <input type="text"/>
-                            </label>
-                            <label>
-                                Opis
-                                <textarea/>
-                            </label>
-                            <label>
-                                Cena (zł)
-                                <input type="number" step="0.01" inputMode="numeric" min="0.01"/>
-                            </label>
-                            <label>
-                                Czas (min)
-                                <input type="number" step="1" inputMode="numeric" min="1"/>
-                            </label>
-                            <input type="submit" value="Dodaj"/>
-                        </form>
-                    </AdminPanelDialog>
-
-                </div>
-                <div className="admin-workers-section">
-                    <h2>Pracownicy</h2>
-                </div>
-            </div>
-        </GeneralLayout>
-    )
-
+  return (
+    <GeneralLayout>
+      <div className="admin-panel">
+        <h1>Panel admina</h1>
+        <div className="admin-users-section">
+          <h2>Konta użytkowników</h2>
+          <div></div>
+        </div>
+        <Zabiegi treatmentArray={treatmentArray} />
+        <div className="admin-clients-section">
+          <h2>Klienci</h2>
+        </div>
+        <div className="admin-workers-section">
+          <h2>Pracownicy</h2>
+        </div>
+      </div>
+    </GeneralLayout>
+  );
 }
