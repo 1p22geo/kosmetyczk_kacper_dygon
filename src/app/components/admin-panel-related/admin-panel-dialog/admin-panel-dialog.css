@@ -1,0 +1,33 @@
+
+dialog{
+    padding:20px;
+    border-radius: 10px;
+    border: #3A144B solid 2px;
+}
+
+.close-dialog-button{
+    position:absolute;
+    top:10px;
+    right:10px;
+    left: auto;
+}
+
+.close-dialog-button img{
+    height:30px;
+    width:30px;
+}
+
+dialog[open] {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

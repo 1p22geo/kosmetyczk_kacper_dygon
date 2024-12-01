@@ -31,6 +31,7 @@ input:not([type="submit"]){
 
 textarea{
     border:var(--font-color) solid 2px;
+    border-radius: 10px
 }
 
 input, textarea{
@@ -52,20 +53,3 @@ input[type="submit"]{
     padding:5px;
 }
 
-dialog{
-    padding:20px;
-    border-radius: 10px;
-    border: #3A144B solid 2px;
-}
-
-.close-dialog-button{
-    position:absolute;
-    top:10px;
-    right:10px;
-    left: auto;
-}
-
-.close-dialog-button img{
-    height:30px;
-    width:30px;
-}

@@ -2,26 +2,19 @@
 
 import GeneralLayout from "@/app/generalLayout";
 import "./admin-panel.css";
-import TreatmentList, { Treatment } from "@/app/components/admin-panel-related/treatment-list"
+import TreatmentList, { Treatment } from "@/app/components/admin-panel-related/treatment-list/treatment-list"
 
-import CloseDialogIcon from './close-dialog-icon.svg'
-import Image from "next/image"
 import {useRef} from "react";
+import AdminPanelDialog, {
+    AdminPanelDialogHandle
+} from "@/app/components/admin-panel-related/admin-panel-dialog/admin-panel-dialog";
 
 
 export default function AdminPanel() {
 
-    const addTreatmentDialog = useRef<HTMLDialogElement>(null);
+    const addTreatmentDialog = useRef<AdminPanelDialogHandle>(null);
 
     let id = 0;
-
-    function switchAddTreatmentDialogVisibility(){
-        if (addTreatmentDialog.current.open) {
-            addTreatmentDialog.current.close();
-        } else {
-            addTreatmentDialog.current.show();
-        }
-    }
 
     const treatmentArray: Treatment[] = [
         {
@@ -59,12 +52,11 @@ export default function AdminPanel() {
                 </div>
                 <div className="admin-treatments-section">
                     <h2>Zabiegi</h2>
-                    <button onClick={switchAddTreatmentDialogVisibility} className="text-button">Dodaj zabieg</button>
+                    <button onClick={() => addTreatmentDialog.current.open() } className="text-button">Dodaj zabieg</button>
                     <TreatmentList treatmentsArray={treatmentArray}/>
 
 
-                    <dialog ref={addTreatmentDialog}>
-                        <button className="close-dialog-button" onClick={switchAddTreatmentDialogVisibility}><Image src={CloseDialogIcon} alt="close dialog icon" /></button>
+                    <AdminPanelDialog ref={addTreatmentDialog}>
                         <form>
                             <h3>Dodaj zabieg</h3>
                             <label>
@@ -81,7 +73,7 @@ export default function AdminPanel() {
                             </label>
                             <input type="submit" value="Dodaj"/>
                         </form>
-                    </dialog>
+                    </AdminPanelDialog>
 
                 </div>
                 <div className="admin-workers-section">
