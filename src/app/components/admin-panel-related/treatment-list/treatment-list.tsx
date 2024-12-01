@@ -1,3 +1,4 @@
+import { DelZabiegAction } from "./del.action";
 import "./treatment-list.css";
 
 import { ObjectId } from "mongodb";
@@ -55,7 +56,13 @@ export default function TreatmentList(props: {
             </p>
           </div>
           <button className="plain-button">Edytuj</button>
-          <button className="plain-button">Usuń</button>
+          <form className="inline" action={DelZabiegAction}>
+            <input type="submit" id={`${treatment._id.toString()}-submit-delete`} className="sr-only" />
+            <input type="hidden" name="id_treatment" value={treatment._id.toString()} />
+            <label htmlFor={`${treatment._id.toString()}-submit-delete`}>
+              <span className="plain-button cursor-pointer">Usuń</span>
+            </label>
+          </form>
           {/*<AdminPanelDialog>*/}
           {/*    <form>*/}
           {/*        <h3>Edytuj zabieg</h3>*/}
