@@ -21,19 +21,22 @@ export default function AdminPanel() {
             id: id++,
             title: "Usuwanie oczów",
             description: "Procedura, w której usuwa się oczy, w przypadku, gdy ktoś chce być niewidomy.",
-            price: 249.90
+            price: 249.90,
+            time: 90
         },
         {
             id: id++,
             title: "Wycinanie nerek",
             description: "Nerki mają niekorzystny wpływ dla zdrowia - u nas możesz się ich pozbyć.",
-            price: 399.90
+            price: 399.90,
+            time: 150
         },
         {
             id: id++,
             title: "Obgryzanie paznokci",
             description: "Nasi pracownicy obgryzą Ci paznokcie, by wyglądały jeszcze piękniej.",
-            price: 49.90
+            price: 49.90,
+            time: 30
         }
     ]
 
@@ -52,7 +55,7 @@ export default function AdminPanel() {
                 </div>
                 <div className="admin-treatments-section">
                     <h2>Zabiegi</h2>
-                    <button onClick={() => addTreatmentDialog.current.open() } className="text-button">Dodaj zabieg</button>
+                    <button onClick={() => addTreatmentDialog.current.open() } className="primary-button">Dodaj zabieg</button>
                     <TreatmentList treatmentsArray={treatmentArray}/>
 
 
@@ -71,6 +74,10 @@ export default function AdminPanel() {
                                 Cena (zł)
                                 <input type="number" step="0.01" inputMode="numeric" min="0.01"/>
                             </label>
+                            <label>
+                                Czas (min)
+                                <input type="number" step="1" inputMode="numeric" min="1"/>
+                            </label>
                             <input type="submit" value="Dodaj"/>
                         </form>
                     </AdminPanelDialog>
@@ -80,7 +87,6 @@ export default function AdminPanel() {
                     <h2>Pracownicy</h2>
                 </div>
             </div>
-
         </GeneralLayout>
     )
 

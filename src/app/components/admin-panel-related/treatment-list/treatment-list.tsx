@@ -8,11 +8,12 @@ export interface Treatment{
     title: string;
     description: string;
     price: number;
+    time: number;
 }
 
 export default function TreatmentList(props: {treatmentsArray: Array<Treatment>}) {
 
-    const renderedTreatmentsList = props.treatmentsArray.map((treatment: Treatment) => {
+    const renderedTreatmentList = props.treatmentsArray.map((treatment: Treatment) => {
 
 
 
@@ -27,10 +28,13 @@ export default function TreatmentList(props: {treatmentsArray: Array<Treatment>}
                     <div>
                         <p><b>Cena: </b>{treatment.price.toFixed(2)} zł</p>
                     </div>
-                    <button>
+                    <div>
+                        <p><b>Czas: </b>{treatment.time} minut</p>
+                    </div>
+                    <button className="plain-button">
                         Edytuj
                     </button>
-                    <button>
+                    <button className="plain-button">
                         Usuń
                     </button>
                     {/*<AdminPanelDialog>*/}
@@ -59,7 +63,7 @@ export default function TreatmentList(props: {treatmentsArray: Array<Treatment>}
 
     return (
         <div>
-            {renderedTreatmentsList}
+            {renderedTreatmentList}
         </div>
     );
 
