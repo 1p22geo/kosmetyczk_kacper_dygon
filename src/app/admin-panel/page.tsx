@@ -2,23 +2,47 @@
 
 import GeneralLayout from "@/app/generalLayout";
 import "./admin-panel.css";
-import { useRef } from "react";
+import TreatmentList, { Treatment } from "@/app/components/admin-panel-related/treatment-list"
 
 import CloseDialogIcon from './close-dialog-icon.svg'
 import Image from "next/image"
+import {useRef} from "react";
 
 
 export default function AdminPanel() {
 
     const addTreatmentDialog = useRef<HTMLDialogElement>(null);
 
-    function switchAddTreatmentDialogVisibility() {
-        if (!addTreatmentDialog.current.open){
-            addTreatmentDialog.current.showModal();
-        } else {
+    let id = 0;
+
+    function switchAddTreatmentDialogVisibility(){
+        if (addTreatmentDialog.current.open) {
             addTreatmentDialog.current.close();
+        } else {
+            addTreatmentDialog.current.show();
         }
     }
+
+    const treatmentArray: Treatment[] = [
+        {
+            id: id++,
+            title: "Usuwanie oczów",
+            description: "Procedura, w której usuwa się oczy, w przypadku, gdy ktoś chce być niewidomy.",
+            price: 249.90
+        },
+        {
+            id: id++,
+            title: "Wycinanie nerek",
+            description: "Nerki mają niekorzystny wpływ dla zdrowia - u nas możesz się ich pozbyć.",
+            price: 399.90
+        },
+        {
+            id: id++,
+            title: "Obgryzanie paznokci",
+            description: "Nasi pracownicy obgryzą Ci paznokcie, by wyglądały jeszcze piękniej.",
+            price: 49.90
+        }
+    ]
 
     return (
         <GeneralLayout>
@@ -36,6 +60,8 @@ export default function AdminPanel() {
                 <div className="admin-treatments-section">
                     <h2>Zabiegi</h2>
                     <button onClick={switchAddTreatmentDialogVisibility} className="text-button">Dodaj zabieg</button>
+                    <TreatmentList treatmentsArray={treatmentArray}/>
+
 
                     <dialog ref={addTreatmentDialog}>
                         <button className="close-dialog-button" onClick={switchAddTreatmentDialogVisibility}><Image src={CloseDialogIcon} alt="close dialog icon" /></button>
