@@ -1,0 +1,90 @@
+/* Stylizacja strony "O nas" */
+.about-hero {
+    background-color: var(--foreground);
+    color: var(--font-color);
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.about-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.about-hero p {
+    font-size: 1.2rem;
+    color: #5c2b61;
+}
+
+.about-team {
+    padding: 40px 20px;
+    background-color: var(--background);
+    text-align: center;
+}
+
+.about-team h2 {
+    font-size: 2rem;
+    color: var(--font-color);
+    margin-bottom: 20px;
+}
+
+.team-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.team-member {
+    background-color: var(--foreground);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    text-align: center;
+    padding: 20px;
+}
+
+.team-member img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.team-member h3 {
+    font-size: 1.5rem;
+    color: var(--font-color);
+    margin-bottom: 10px;
+}
+
+.team-member p {
+    color: #5c2b61;
+    font-size: 1rem;
+}
+
+.about-values {
+    padding: 40px 20px;
+    background-color: var(--foreground);
+    color: var(--font-color);
+    text-align: center;
+}
+
+.about-values h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.about-values ul {
+    list-style: none;
+    padding: 0;
+}
+
+.about-values li {
+    font-size: 1.1rem;
+    color: #5c2b61;
+    margin: 10px 0;
+}
+
+.about-values li strong {
+    color: var(--font-color);
+}
