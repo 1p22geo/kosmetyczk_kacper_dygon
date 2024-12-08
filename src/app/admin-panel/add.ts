@@ -1,9 +1,9 @@
-"use server"
+"use server";
 
 import { env } from "process";
 import { MongoClient, WithoutId } from "mongodb";
 import { Treatment } from "../components/admin-panel-related/treatment-list/treatment-list";
-import {redirect} from "next/navigation";
+import { redirect } from "next/navigation";
 
 export const dodajZabieg = async (
   nazwa: string,
@@ -15,8 +15,8 @@ export const dodajZabieg = async (
   const uri = env.MONGODB_URI
     ? env.MONGODB_URI
     : (() => {
-      throw Error("no mongodb URI, set MONGODB_URI environment variable");
-    })();
+        throw Error("no mongodb URI, set MONGODB_URI environment variable");
+      })();
 
   const client = new MongoClient(uri);
   await client.connect();
@@ -28,12 +28,10 @@ export const dodajZabieg = async (
     title: nazwa,
     description: opis,
     price: cena,
-    time: czas
+    time: czas,
   });
 
   await client.close();
-
-
 };
 
 export const DodajZabiegAction = async (d: FormData) => {
@@ -47,6 +45,4 @@ export const DodajZabiegAction = async (d: FormData) => {
   );
 
   redirect(`/admin-panel`);
-
-
 };

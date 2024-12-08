@@ -2,9 +2,10 @@
 
 [Dokumentacja](./doc/doc.md)
 
-
 ## Uruchamianie
+
 Przed uruchomieniem:
+
 - skopiuj .env.local.example do .env.local
 - wypełnij dane (MONGO_URI oraz APP_URL)
 
@@ -13,16 +14,17 @@ SELF_URL nie zmieniać
 MONGO_URI - connection string z discorda
 
 Następnie zainstaluj dependencje i uruchom
+
 ```
 yarn install
 yarn dev
 ```
 
-
 ## Deployment produkcyjny
 
 APP_URL zmienić na pełny HTTPS URL z domeną
 Zainstalować na serwerze, najlepiej w Docker, lub Docker-compose
+
 ```
 yarn install --frozen-lockfile
 yarn build

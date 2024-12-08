@@ -28,7 +28,7 @@ export const Zabiegi = ({
       <TreatmentList treatmentsArray={treatmentArray} />
 
       <AdminPanelDialog ref={addTreatmentDialog}>
-          <form action={DodajZabiegAction}>
+        <form action={DodajZabiegAction}>
           <h3>Dodaj zabieg</h3>
           <label>
             Nazwa

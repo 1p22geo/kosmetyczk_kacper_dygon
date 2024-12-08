@@ -1,4 +1,4 @@
-"use server"
+"use server";
 
 import { env } from "process";
 import { MongoClient, ObjectId, WithoutId } from "mongodb";
@@ -9,14 +9,14 @@ export const edytujZabieg = async (
   id: ObjectId,
   nazwa: string,
   opis: string,
-  cena: number
+  cena: number,
 ) => {
   "use server";
   const uri = env.MONGODB_URI
     ? env.MONGODB_URI
     : (() => {
-      throw Error("no mongodb URI, set MONGODB_URI environment variable");
-    })();
+        throw Error("no mongodb URI, set MONGODB_URI environment variable");
+      })();
 
   const client = new MongoClient(uri);
   await client.connect();
@@ -24,19 +24,19 @@ export const edytujZabieg = async (
   const db = client.db("kosmetyczk");
   const treatments = db.collection<WithoutId<Treatment>>("treatments");
 
-  await treatments.updateOne({
-    _id: id
-  }, {
-    $set: {
-      price: cena,
-      description: opis,
-      title: nazwa
-    }
-  }
+  await treatments.updateOne(
+    {
+      _id: id,
+    },
+    {
+      $set: {
+        price: cena,
+        description: opis,
+        title: nazwa,
+      },
+    },
   );
   await client.close();
-
-
 };
 
 export const EdytujZabiegAction = async (d: FormData) => {
@@ -48,4 +48,4 @@ export const EdytujZabiegAction = async (d: FormData) => {
     parseFloat(d.get("cena")?.toString() ?? ""),
   );
   redirect(`/admin-panel?submitted=true`); // to se możesz zmienić
-}
+};

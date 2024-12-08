@@ -23,11 +23,13 @@ export default function TreatmentList(props: {
 }) {
   const renderedTreatmentList = props.treatmentsArray.map(
     (treatment: ClientSantizedTreatment) => {
-      return (
-        <TreatmentItem treatment={treatment} key={treatment._id}/>
-      );
+      return <TreatmentItem treatment={treatment} key={treatment._id} />;
     },
   );
 
-  return <div className="w-full flex flex-col items-center">{renderedTreatmentList}</div>;
+  return (
+    <div className="w-full flex flex-col items-center">
+      {renderedTreatmentList}
+    </div>
+  );
 }

@@ -1,15 +1,16 @@
-"use client"
+"use client";
 
 import { ClientSantizedTreatment } from "@/app/components/admin-panel-related/treatment-list/treatment-list";
 import { DelZabiegAction } from "@/app/components/admin-panel-related/treatment-list/del.action";
-import AdminPanelDialog, { AdminPanelDialogHandle } from "@/app/components/admin-panel-related/admin-panel-dialog/admin-panel-dialog";
+import AdminPanelDialog, {
+  AdminPanelDialogHandle,
+} from "@/app/components/admin-panel-related/admin-panel-dialog/admin-panel-dialog";
 import { useRef } from "react";
 import { EdytujZabiegAction } from "./edit.action";
 
 export default function TreatmentItem(props: {
-  treatment: ClientSantizedTreatment
+  treatment: ClientSantizedTreatment;
 }) {
-
   const editTreatmentDialog = useRef<AdminPanelDialogHandle>(null);
 
   return (
@@ -41,10 +42,23 @@ export default function TreatmentItem(props: {
           {props.treatment.time} minut
         </p>
       </div>
-      <button className="plain-button" onClick={() => editTreatmentDialog.current?.open()}>Edytuj</button>
+      <button
+        className="plain-button"
+        onClick={() => editTreatmentDialog.current?.open()}
+      >
+        Edytuj
+      </button>
       <form className="inline" action={DelZabiegAction}>
-        <input type="submit" id={`${props.treatment._id.toString()}-submit-delete`} className="sr-only" />
-        <input type="hidden" name="id_treatment" defaultValue={props.treatment._id.toString()} />
+        <input
+          type="submit"
+          id={`${props.treatment._id.toString()}-submit-delete`}
+          className="sr-only"
+        />
+        <input
+          type="hidden"
+          name="id_treatment"
+          defaultValue={props.treatment._id.toString()}
+        />
         <label htmlFor={`${props.treatment._id.toString()}-submit-delete`}>
           <span className="plain-button cursor-pointer">Usuń</span>
         </label>
@@ -52,10 +66,20 @@ export default function TreatmentItem(props: {
       <AdminPanelDialog ref={editTreatmentDialog}>
         <form action={EdytujZabiegAction}>
           <h3>Edytuj zabieg</h3>
-          <input type="text" className="sr-only" name="id_zabieg" readOnly value={props.treatment._id} />
+          <input
+            type="text"
+            className="sr-only"
+            name="id_zabieg"
+            readOnly
+            value={props.treatment._id}
+          />
           <label>
             Nazwa
-            <input type="text" defaultValue={props.treatment.title} name="nazwa" />
+            <input
+              type="text"
+              defaultValue={props.treatment.title}
+              name="nazwa"
+            />
           </label>
           <label>
             Opis
@@ -63,11 +87,18 @@ export default function TreatmentItem(props: {
           </label>
           <label>
             Cena (zł)
-            <input type="number" step="0.01" inputMode="numeric" min="0.01" name="cena" defaultValue={props.treatment.price} />
+            <input
+              type="number"
+              step="0.01"
+              inputMode="numeric"
+              min="0.01"
+              name="cena"
+              defaultValue={props.treatment.price}
+            />
           </label>
           <input type="submit" defaultValue="Edytuj" />
         </form>
       </AdminPanelDialog>
     </div>
-  )
+  );
 }
