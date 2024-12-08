@@ -1,0 +1,83 @@
+.appointment-hero {
+    background-color: var(--foreground);
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.appointment-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.appointment-hero p {
+    font-size: 1.2rem;
+}
+
+.appointment-form {
+    padding: 40px 20px;
+    background-color: var(--foreground);
+    text-align: center;
+}
+
+.appointment-form h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--foreground);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--font-color);
+}
+
+.btn-submit {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    background-color: var(--font-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.btn-submit:hover {
+    background-color: #5c2b61;
+}

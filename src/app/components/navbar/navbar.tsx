@@ -14,7 +14,7 @@ export default function Navbar() {
       <a href="/book-now" className="book-now-button primary-button">
         Umów się
       </a>
-      <a href="/profile">
+      <a href="/auth/login">
         <Image src={personIcon} alt="person icon" />
       </a>
     </nav>

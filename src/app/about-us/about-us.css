@@ -1,7 +1,5 @@
-/* Stylizacja strony "O nas" */
 .about-hero {
     background-color: var(--foreground);
-    color: var(--font-color);
     text-align: center;
     padding: 60px 20px;
 }
@@ -13,7 +11,6 @@
 
 .about-hero p {
     font-size: 1.2rem;
-    color: #5c2b61;
 }
 
 .about-team {
@@ -24,7 +21,6 @@
 
 .about-team h2 {
     font-size: 2rem;
-    color: var(--font-color);
     margin-bottom: 20px;
 }
 
@@ -53,19 +49,16 @@
 
 .team-member h3 {
     font-size: 1.5rem;
-    color: var(--font-color);
     margin-bottom: 10px;
 }
 
 .team-member p {
-    color: #5c2b61;
     font-size: 1rem;
 }
 
 .about-values {
     padding: 40px 20px;
-    background-color: var(--foreground);
-    color: var(--font-color);
+    background-color: var(--background);
     text-align: center;
 }
 
@@ -81,7 +74,6 @@
 
 .about-values li {
     font-size: 1.1rem;
-    color: #5c2b61;
     margin: 10px 0;
 }
 

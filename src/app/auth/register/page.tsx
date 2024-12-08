@@ -13,9 +13,11 @@ export default function Register() {
         onSubmit={async (e) => {
           e.preventDefault();
 
+          alert(usernameInput.current?.value);
+
           if (
-            passwordInput.current?.value == passwordInput.current?.value &&
-            passwordInput.current != null
+            passwordInput.current?.value == secondPasswordInput.current?.value &&
+            passwordInput.current?.value != null
           ) {
             alert("Hasła nie są takie same");
           }
@@ -28,10 +30,11 @@ export default function Register() {
               email: emailInput.current?.value,
             }),
           });
+          if (res.status == 201) alert("stworzono użytkownika");
           if (res.status == 409) alert("użytkownik już istnieje");
           if (res.status == 400)
             alert("hasło nie spełnia wymagań dotyczących bezpieczeństwa");
-          if (res.status == 201) alert("stworzono użytkownika");
+
         }}
       >
         <h1>Zarejestruj się w Kosmetyczce</h1>
@@ -45,14 +48,14 @@ export default function Register() {
           />
         </label>
         <label>
-          <input className="login-input" type="password" placeholder="hasło" />
+          <input className="login-input" type="text" placeholder="hasło" ref={passwordInput}/>
         </label>
         <label>
           <input
             className="login-input"
-            type="password"
+            type="text"
             placeholder="powtórz hasło"
-            ref={passwordInput}
+            ref={secondPasswordInput}
           />
         </label>
         <p>

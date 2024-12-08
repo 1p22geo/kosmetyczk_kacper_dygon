@@ -6,12 +6,10 @@
 
 .hero h1 {
   font-size: 2.5rem;
-  color: var(--font-color);
 }
 
 .hero p {
   font-size: 1.2rem;
-  color: #5c2b61;
 }
 
 .services {
@@ -71,20 +69,11 @@
 .testimonials blockquote {
   font-style: italic;
   margin: 10px 0;
-  color: #5c2b61;
 }
 
 .about {
   padding: 40px 20px;
   text-align: center;
-}
-
-.about h2 {
-  color: var(--font-color);
-}
-
-.about p {
-  color: #5c2b61;
 }
 
 .contact {
