@@ -1,23 +1,23 @@
 .gallery-grid {
-    display: flex;
-    margin-left: -16px;
-    width: auto;
-    padding: 16px ;
+  display: flex;
+  margin-left: -16px;
+  width: auto;
+  padding: 16px;
 }
 .gallery-column {
-    padding-left: 16px;
-    background-clip: padding-box;
+  padding-left: 16px;
+  background-clip: padding-box;
 }
 .gallery-item {
-    /*background: #ddd;*/
-    /*border-radius: 8px;*/
-    /*padding: 16px;*/
-    margin-bottom: 16px;
-    text-align: center;
-    width:auto;
+  /*background: #ddd;*/
+  /*border-radius: 8px;*/
+  /*padding: 16px;*/
+  margin-bottom: 16px;
+  text-align: center;
+  width: auto;
 }
 
-h1{
-    text-align: center;
-    padding-top:30px;
+h1 {
+  text-align: center;
+  padding-top: 30px;
 }
