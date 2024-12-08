@@ -7,7 +7,6 @@ import AdminPanelDialog, {
 
 import TreatmentList, {
   ClientSantizedTreatment,
-  Treatment,
 } from "@/app/components/admin-panel-related/treatment-list/treatment-list";
 import { DodajZabiegAction } from "./add";
 export const Zabiegi = ({
@@ -29,7 +28,7 @@ export const Zabiegi = ({
       <TreatmentList treatmentsArray={treatmentArray} />
 
       <AdminPanelDialog ref={addTreatmentDialog}>
-        <form action={DodajZabiegAction}>
+          <form action={DodajZabiegAction}>
           <h3>Dodaj zabieg</h3>
           <label>
             Nazwa
@@ -59,7 +58,7 @@ export const Zabiegi = ({
               name="czas"
             />
           </label>
-          <input type="submit" value="Dodaj" />
+          <input type="submit" defaultValue="Dodaj" />
         </form>
       </AdminPanelDialog>
     </div>

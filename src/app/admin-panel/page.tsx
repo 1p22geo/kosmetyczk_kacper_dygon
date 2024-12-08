@@ -36,9 +36,6 @@ export default async function AdminPanel() {
           <div></div>
         </div>
         <Zabiegi treatmentArray={treatmentArray} />
-        <div className="admin-clients-section">
-          <h2>Klienci</h2>
-        </div>
         <div className="admin-workers-section">
           <h2>Pracownicy</h2>
         </div>

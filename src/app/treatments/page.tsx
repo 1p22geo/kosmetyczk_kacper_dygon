@@ -27,35 +27,6 @@ export default async function Treatments() {
     await client.close();
 
 
-  // let id = 0;
-  //
-  // const treatmentArray: Treatment[] = [
-  //   {
-  //     id: id++,
-  //     title: "Usuwanie oczów",
-  //     description:
-  //       "Procedura, w której usuwa się oczy, w przypadku, gdy ktoś chce być niewidomy.",
-  //     price: 249.9,
-  //     time: 90,
-  //   },
-  //   {
-  //     id: id++,
-  //     title: "Wycinanie nerek",
-  //     description:
-  //       "Nerki mają niekorzystny wpływ dla zdrowia - u nas możesz się ich pozbyć.",
-  //     price: 399.9,
-  //     time: 150,
-  //   },
-  //   {
-  //     id: id++,
-  //     title: "Obgryzanie paznokci",
-  //     description:
-  //       "Nasi pracownicy obgryzą Ci paznokcie, by wyglądały jeszcze piękniej.",
-  //     price: 49.9,
-  //     time: 30,
-  //   },
-  // ];
-
   const renderedTreatmentList = treatmentArray.map((treatment: ClientSantizedTreatment) => {
     return (
       <div key={treatment._id.toString()} className="treatment-element">

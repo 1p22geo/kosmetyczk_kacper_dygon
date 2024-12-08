@@ -3,6 +3,7 @@
 import { env } from "process";
 import { MongoClient, ObjectId, WithoutId } from "mongodb";
 import { Treatment } from "@/app/components/admin-panel-related/treatment-list/treatment-list";
+import {redirect} from "next/navigation";
 
 export const usunZabieg = async (
   id: ObjectId
@@ -28,7 +29,8 @@ export const usunZabieg = async (
 
 export const DelZabiegAction = async (d: FormData) => {
   "use server";
-  return usunZabieg(
+  await usunZabieg(
     new ObjectId(d.get("id_treatment")?.toString() ?? ""),
   );
+  redirect(`/admin-panel`);
 }

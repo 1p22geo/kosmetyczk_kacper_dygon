@@ -3,6 +3,7 @@
 import { env } from "process";
 import { MongoClient, WithoutId } from "mongodb";
 import { Treatment } from "../components/admin-panel-related/treatment-list/treatment-list";
+import {redirect} from "next/navigation";
 
 export const dodajZabieg = async (
   nazwa: string,
@@ -37,10 +38,15 @@ export const dodajZabieg = async (
 
 export const DodajZabiegAction = async (d: FormData) => {
   "use server";
-  return dodajZabieg(
+
+  await dodajZabieg(
     d.get("nazwa")?.toString() ?? "",
     d.get("opis")?.toString() ?? "",
     parseFloat(d.get("cena")?.toString() ?? "0"),
     parseInt(d.get("czas")?.toString() ?? "0"),
   );
+
+  redirect(`/admin-panel`);
+
+
 };

@@ -37,6 +37,8 @@ export default function Gallery(){
     return (
     <GeneralLayout>
 
+        <h1>Galeria</h1>
+
         <Masonry
         breakpointCols={{
             default: 3
