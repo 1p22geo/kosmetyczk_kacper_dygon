@@ -96,6 +96,17 @@ export default function TreatmentItem(props: {
               defaultValue={props.treatment.price}
             />
           </label>
+          <label>
+            Czas (zł)
+            <input
+              type="number"
+              step="0.01"
+              inputMode="numeric"
+              min="0.01"
+              name="czas"
+              defaultValue={props.treatment.time}
+            />
+          </label>
           <input type="submit" defaultValue="Edytuj" />
         </form>
       </AdminPanelDialog>

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import CloseDialogIcon from "@/app/admin-panel/close-dialog-icon.svg";
+import CloseDialogIcon from "@/app/components/admin-panel-related/admin-panel-dialog/close-dialog-icon.svg";
 import React, { ReactNode, useRef, useImperativeHandle } from "react";
 import "./admin-panel-dialog.css";
 
@@ -9,7 +9,7 @@ export interface AdminPanelDialogHandle {
 
 function AdminPanelDialog(
   props: { children: ReactNode },
-  ref: React.Ref<AdminPanelDialogHandle>,
+  ref: React.Ref<AdminPanelDialogHandle>
 ) {
   const dialog = useRef<HTMLDialogElement>(null);
 

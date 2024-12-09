@@ -24,7 +24,7 @@ export default function TreatmentList(props: {
   const renderedTreatmentList = props.treatmentsArray.map(
     (treatment: ClientSantizedTreatment) => {
       return <TreatmentItem treatment={treatment} key={treatment._id} />;
-    },
+    }
   );
 
   return (

@@ -10,6 +10,7 @@ export const edytujZabieg = async (
   nazwa: string,
   opis: string,
   cena: number,
+  czas: number
 ) => {
   "use server";
   const uri = env.MONGODB_URI
@@ -33,8 +34,9 @@ export const edytujZabieg = async (
         price: cena,
         description: opis,
         title: nazwa,
+        time: czas,
       },
-    },
+    }
   );
   await client.close();
 };
@@ -46,6 +48,7 @@ export const EdytujZabiegAction = async (d: FormData) => {
     d.get("nazwa")?.toString() ?? "",
     d.get("opis")?.toString() ?? "",
     parseFloat(d.get("cena")?.toString() ?? ""),
+    parseInt(d.get("czas")?.toString() ?? "")
   );
   redirect(`/admin-panel?submitted=true`); // to se możesz zmienić
 };

@@ -10,14 +10,14 @@ import TreatmentList, {
 } from "@/app/components/admin-panel-related/treatment-list/treatment-list";
 import { DodajZabiegAction } from "./add";
 export const Zabiegi = ({
-  treatmentArray,
+  treatmentsArray,
 }: {
-  treatmentArray: ClientSantizedTreatment[];
+  treatmentsArray: ClientSantizedTreatment[];
 }) => {
   const addTreatmentDialog = useRef<AdminPanelDialogHandle>(null);
 
   return (
-    <div className="admin-treatments-section">
+    <div className="admin-section">
       <h2>Zabiegi</h2>
       <button
         onClick={() => addTreatmentDialog.current?.open()}
@@ -25,7 +25,7 @@ export const Zabiegi = ({
       >
         Dodaj zabieg
       </button>
-      <TreatmentList treatmentsArray={treatmentArray} />
+      <TreatmentList treatmentsArray={treatmentsArray} />
 
       <AdminPanelDialog ref={addTreatmentDialog}>
         <form action={DodajZabiegAction}>

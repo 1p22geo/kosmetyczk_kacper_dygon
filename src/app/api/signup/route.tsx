@@ -22,7 +22,7 @@ export const POST = async (req: NextRequest) => {
   if (data.password.length < 8) {
     return NextResponse.json(
       { status: "error", error: "password security" },
-      { status: 400 },
+      { status: 400 }
     );
   }
 
@@ -31,22 +31,22 @@ export const POST = async (req: NextRequest) => {
 
   const db = client.db("kosmetyczk");
   const users = db.collection("users");
-  const user = await users.findOne({
-    $or: [
-      {
-        username: data.username,
-      },
-      {
-        email: data.email,
-      },
-    ],
-  });
-  if (user) {
-    return NextResponse.json(
-      { status: "error", error: "user already exists" },
-      { status: 409 },
-    );
-  }
+  // const user = await users.findOne({
+  //   $or: [
+  //     {
+  //       username: data.username,
+  //     },
+  //     {
+  //       email: data.email,
+  //     },
+  //   ],
+  // });
+  // if (user) {
+  //   return NextResponse.json(
+  //     { status: "error", error: "user already exists" },
+  //     { status: 409 },
+  //   );
+  // }
 
   const { insertedId } = await users.insertOne({
     username: data.username,
@@ -58,6 +58,6 @@ export const POST = async (req: NextRequest) => {
   await client.close();
   return NextResponse.json(
     { status: "user created", id: insertedId },
-    { status: 201 },
+    { status: 201 }
   );
 };

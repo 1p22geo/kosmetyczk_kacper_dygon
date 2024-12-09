@@ -1,5 +1,6 @@
 "use client";
 import { useRef, useState } from "react";
+import { redirect } from "next/navigation";
 
 export default function Login() {
   const usernameInput = useRef<HTMLInputElement>(null);
@@ -21,7 +22,10 @@ export default function Login() {
           });
           if (res.status == 401) alert("złe hasło lub nazwa użytkownika");
           if (res.status == 400) alert("podaj hasło i nazwę użytkownika");
-          if (res.status == 201) alert("zalogowano");
+          if (res.status == 201) {
+            alert("zalogowano");
+            redirect("/home");
+          }
         }}
       >
         <h1>Zaloguj się do Kosmetyczki</h1>
