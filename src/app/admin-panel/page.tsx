@@ -9,6 +9,7 @@ import {
   Treatment,
 } from "../components/admin-panel-related/treatment-list/treatment-list";
 import Uzytkownicy from "@/app/admin-panel/uzytkownicy";
+import UpcomingAppointments from "@/app/book-now/appointmentList";
 
 export default async function AdminPanel() {
   const uri = env.MONGODB_URI
@@ -35,10 +36,11 @@ export default async function AdminPanel() {
         <div className="admin-users-section">
           <h2>Konta użytkowników</h2>
           <div>
-            <Uzytkownicy/>
+            <Uzytkownicy />
           </div>
         </div>
-        <Zabiegi treatmentArray={treatmentArray}/>
+        <Zabiegi treatmentArray={treatmentArray} />
+        <UpcomingAppointments/>
       </div>
     </GeneralLayout>
   );

@@ -16,7 +16,8 @@ export default function Register() {
           alert(usernameInput.current?.value);
 
           if (
-            passwordInput.current?.value == secondPasswordInput.current?.value &&
+            passwordInput.current?.value ==
+              secondPasswordInput.current?.value &&
             passwordInput.current?.value != null
           ) {
             alert("Hasła nie są takie same");
@@ -34,7 +35,6 @@ export default function Register() {
           if (res.status == 409) alert("użytkownik już istnieje");
           if (res.status == 400)
             alert("hasło nie spełnia wymagań dotyczących bezpieczeństwa");
-
         }}
       >
         <h1>Zarejestruj się w Kosmetyczce</h1>
@@ -48,7 +48,12 @@ export default function Register() {
           />
         </label>
         <label>
-          <input className="login-input" type="text" placeholder="hasło" ref={passwordInput}/>
+          <input
+            className="login-input"
+            type="text"
+            placeholder="hasło"
+            ref={passwordInput}
+          />
         </label>
         <label>
           <input
